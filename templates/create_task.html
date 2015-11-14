@@ -4,27 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}">
 
     <title>TaskMarket</title>
   </head>
   <body>
-    <nav class="navbar navbar-inverse" role="navigation">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>    
-      </div>
-      <a class="navbar-brand" href="#">TaskMarket</a>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Login</a></li>
+      <div id='cssmenu'>
+        <ul>
+          <li class='active'><a href='#'>TaskMarket</a></li>
+   
+          <li><a href='#'>Login</a></li>
+          <li><a href='#'>Profile</a></li>
+          <li><a href='#'>Home</a></li>
         </ul>
       </div>
-    </nav>
 
     <div id = "wrapper">
     <header>
@@ -50,5 +43,6 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
       <script type="text/javascript" src="{{ url_for('static', filename='js/fb.js') }}"></script>
       <script src="{{ url_for('static', filename='js/create_task.js') }}"></script>
+      <script type="text/javascript" src="{{ url_for('static', filename='navbar.js') }}"></script>
   </body>
 </html>

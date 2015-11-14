@@ -8,7 +8,8 @@
     <title>TaskMarket</title>
 
     <!-- Bootstrap -->
-    <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+ 
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,23 +19,15 @@
     <![endif]-->
   </head>
   <body>
-    <nav class="navbar navbar-inverse" role="navigation">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>    
-      </div>
-      <a class="navbar-brand" href="#">TaskMarket</a>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Login</a></li>
+      <div id='cssmenu'>
+        <ul>
+          <li class='active'><a href='#'>TaskMarket</a></li>
+   
+          <li><a href='#'>Login</a></li>
+          <li><a href='#'>Profile</a></li>
+          <li><a href='#'>Home</a></li>
         </ul>
       </div>
-    </nav>
 
     <div id = "wrapper">
     <header>
