@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>TaskMarket Login</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/login_style.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>    
+      </div>
+      <a class="navbar-brand" href="#">TaskMarket</a>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Login</a></li>
+        </ul>
+      </div>
+    </nav>
+
+  <div id = "wrapper">
+    <header>
+      <h1>TaskMarket</h1>
+    </header>
+    <div id = "content">
+      <div class = "left">
+        <h2>New User</h2>
+        <form id = "new-user-form">
+          <p>Name<br></p>
+          <input type = "text" name = "name"><br>
+          <p>Email</p>
+          <input type = "text" name = "email">
+          <p>Password</p>
+          <input type = "password" name = "pass"><br><br>
+          <input class="submit-btn" type = "submit" value="Create Account">
+        </form>
+      </div>
+      <div class = "right">
+        <h2>Returning User</h2>
+        <form>
+          <p>Name<br></p>
+          <input type = "text" name = "name"><br>
+          <p>Password<br></p>
+          <input type = "password" name = "pass"><br><br>
+          <input class="submit-btn" type = "submit" value="Sign In">
+        </form>
+      </div>
+    </div>
+  </div>
+     
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
