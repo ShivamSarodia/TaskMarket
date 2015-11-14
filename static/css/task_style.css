@@ -32,3 +32,8 @@
 	float: right;
 	vertical-align: top;
 }
+
+ul {
+	list-style-type: none;
+	float: left;
+}

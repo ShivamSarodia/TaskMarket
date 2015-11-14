@@ -1,12 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Main</title>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>TaskMarket</title>
+
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
-    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/task_style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}">
+
+
   </head>
   <body>
-    <button onclick="on_login_click()">Login</button>
+   
+      <div id='cssmenu'>
+        <ul>
+          <li class='active'><a href='#'>TaskMarket</a></li>
+   
+          <li><a href='#'>Login</a></li>
+          <li><a href='#'>Profile</a></li>
+          <li><a href='#'>Home</a></li>
+        </ul>
+      </div>
+    
+
+    <h1>Welcome to TaskMarket!</h1>
+    
+  <ul>
+    <li>
+      <div class="task" id="first_task">
+        <ul>
+          <li class = "name">Name: {{ Requester }}</li>
+          <li class = "job">Job: {{ Job }}</li>
+          <li class = "location">Location: {{ Location }}</li>
+          <li class = "price">Price: ${{ Price }}</li>
+        </ul>
+        <input class="submit-btn" type = "submit" value="Accept">
+      </div><br>
+      <p class="description"> asdf </p>
+    </li>
+
+    <li>
+      <div class="task" id="second_task" >
+        <ul>
+          <li class = "name">Name: {{ Requester }}</li>
+          <li class = "job">Job: {{ Job }}</li>
+          <li class = "location">Location: {{ Location }}</li>
+          <li class = "price">Price: ${{ Price }}</li>
+        </ul>
+        <input class="submit-btn" type = "submit" value="Accept">
+      </div><br>
+      <p class="description"> asdf </p>
+    </li>
+
+    <li>
+      <div class="task" id="third_task" >
+        <ul>
+          <li class = "name">Name: {{ Requester }}</li>
+          <li class = "job">Job: {{ Job }}</li>
+          <li class = "location">Location: {{ Location }}</li>
+          <li class = "price">Price: ${{ Price }}</li>
+        </ul>
+        <input class="submit-btn" type = "submit" value="Accept">
+      </div><br>
+      <p class="description"> asdf </p>
+    </li>
+  </ul>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/fb.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/navbar.js') }}"></script>
   </body>
 </html>
+

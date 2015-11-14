@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}">
+
+    <title>TaskMarket</title>
+  </head>
+  <body>
+      <div id='cssmenu'>
+        <ul>
+          <li class='active'><a href='#'>TaskMarket</a></li>
+   
+          <li><a href='#'>Login</a></li>
+          <li><a href='#'>Profile</a></li>
+          <li><a href='#'>Home</a></li>
+        </ul>
+      </div>
+
+    <div id = "wrapper">
+    <header>
+      <div class = "account">
+        <p>Hi, <a href="#">{{ User }}</a></p>
+      </div>
+    </header>
+    <div id = "content">
+      <h2>What task do you want completed?</h2>
+      <form>
+          <p>Job Title: <br></p>
+          <input id="title-input" class="input-field" type="text" name="title" value=""><br><br>
+          <p>Location<br></p>
+          <input class="input-field" type="text" name="location" value=""><br><br>
+          <p>Payment<br></p>
+          <input id="salary-input" class="input-field" type="text" name="price" value=""><br><br>
+          <p>Description<br></p>
+          <textarea id="descrip-input" name="Text1" cols="40" rows="5" ... ></textarea>
+          <input type="button" value="Submit" onclick="add_task()" class="btn" style="width: 15%; margin-left: 15%; height: 50px; margin-top: 50px;">
+      </form> 
+     
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script type="text/javascript" src="{{ url_for('static', filename='js/fb.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/create_task.js') }}"></script>
+      <script type="text/javascript" src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+  </body>
+</html>
