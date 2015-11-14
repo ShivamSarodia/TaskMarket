@@ -7,6 +7,10 @@ app = Flask(__name__)
 def main():
     return render_template('main.html')
 
+@app.route("/create-task")
+def create_task():
+    return render_template('create_task.html')
+
 @app.route("/login-back", methods = ['POST'])
 def login():
     if request.method == "POST":

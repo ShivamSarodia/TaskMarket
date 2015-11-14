@@ -55,23 +55,14 @@ function sendLogon(response)
 
     FB.api('/me', function(response) {
 	var name = response.name;
-	
-	var xhttp = new XMLHttpRequest();
-	xhttp.open("POST", "/login-back", true);
-	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhttp.onload = function (e) {
-	    if (xhttp.readyState === 4) {
-		if (xhttp.status === 200) {
-		    console.log(xhttp.responseText); //successful login
-		} else {
-		    console.error(xhttp.statusText);
-		}
-	    }
-	};
-	xhttp.onerror = function (e) {
-	    console.error(xhttp.statusText);
-	};
-	xhttp.send("uid="+uid+"&accessToken="+accessToken+"&fullname="+name);
+
+	$.ajax({
+	    method: "POST",
+	    url: "/login-back",
+	    data: { "uid": uid, "accessToken": accessToken }
+	}).done(function( msg ) {
+	    console.log(msg);
+	});
     });    
 }
 
