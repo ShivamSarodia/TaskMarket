@@ -9,7 +9,7 @@
 
     <!-- Bootstrap -->
     <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-
+    <script src="{{ url_for('static', filename='js/create_task.js') }}"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -41,22 +41,19 @@
       <div class = "account">
         <p>Hi, <a href="#">{{ User }}</a></p>
       </div>
-      <h1>Task Exchange</h1>
     </header>
     <div id = "content">
       <h2>What task do you want completed?</h2>
-      <form method="post">
-        <!--SAVE THESE IN VARIABLES - THEY WILL BE CALLED ON LATER-->
-          
+      <form>
           <p>Job Title: <br></p>
-          <input class="input-field" type="text" name="job" value=""><br><br>
+          <input class="input-field" type="text" name="title" value=""><br><br>
           <p>Location<br></p>
           <input class="input-field" type="text" name="location" value=""><br><br>
           <p>Payment<br></p>
           <input class="input-field" type="text" name="price" value=""><br><br>
           <p>Description<br></p>
           <textarea name="Text1" cols="40" rows="5" ... ></textarea>
-          <input type="submit" value="Submit" class="btn" style="width: 15%; margin-left: 15%; height: 50px; margin-top: 50px;">
+          <input type="button" value="Submit" onclick="add_task()" class="btn" style="width: 15%; margin-left: 15%; height: 50px; margin-top: 50px;">
       </form> 
      
 
