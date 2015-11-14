@@ -49,11 +49,33 @@ on_login_click = function() {
 
 function sendLogon(response)
 {
+    console.log(response)
     var uid = response.authResponse.userID;
     var accessToken = response.authResponse.accessToken;
-    
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "/login", true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("uid="+uid+"&accessToken="+accessToken);
+
+    FB.api('/me', function(response) {
+	var name = response.name;
+	
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("POST", "/login-back", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.onload = function (e) {
+	    if (xhttp.readyState === 4) {
+		if (xhttp.status === 200) {
+		    console.log(xhttp.responseText); //successful login
+		} else {
+		    console.error(xhttp.statusText);
+		}
+	    }
+	};
+	xhttp.onerror = function (e) {
+	    console.error(xhttp.statusText);
+	};
+	xhttp.send("uid="+uid+"&accessToken="+accessToken+"&fullname="+name);
+    });    
+}
+
+function isLoggedIn() // DO NOT CALL ON PAGE LOAD!!!
+{
+    return (FB.getAuthResponse() != null);
 }
