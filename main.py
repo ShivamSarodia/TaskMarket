@@ -11,6 +11,10 @@ def main():
 def create_task():
     return render_template('create_task.html')
 
+@app.route("/profile")
+def profile():
+    return render_template('profile.html')
+
 @app.route("/login-back", methods = ['POST'])
 def login():
     print(request.form["accessToken"])
@@ -23,7 +27,7 @@ def login():
               print("Adding new user")
               query_db("insert into users (fb_user_id, fullname) values (?, ?)", [uid, fullname])
 
-        return "Login success"
+        return "success"
     else:
         print("Not a POST")
     return ""
@@ -36,12 +40,15 @@ def make_task():
         description = request.form["description"]
         salary = request.form["salary"]
         lat = request.form["lat"]
-        lon = request.form["longi"]
+        lon = request.form["lon"]
         poster_id = request.form["uid"]
 
         query_db("insert into tasks (status, title, description, salary, lat, lon, poster_id) values (?, ?, ?, ?, ?, ?, ?)", [status, title, description, salary, lat, lon, poster_id])
 
-        return ""
+        task_id = query_db("select last_insert_rowid();", one=True)[0]
+        query_db("insert into tasks_made (user_id, task_id) values (?, ?)", [poster_id, task_id])
+
+        return "success"
     else:
         print("Not a POST")
         return ""
