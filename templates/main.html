@@ -8,32 +8,29 @@
     <title>TaskMarket</title>
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/task_style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
+     
 
   </head>
   <body>
-    <nav class="navbar navbar-inverse" role="navigation">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>    
-      </div>
-      <a class="navbar-brand" href="#">TaskMarket</a>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Profile</a></li>
-          <li><a href="#" onclick="on_login_click()">Login</a></li>
+   
+      <div id='cssmenu'>
+        <ul>
+          <li class='active'><a href='#'>TaskMarket</a></li>
+   
+          <li><a href='#'>Login</a></li>
+          <li><a href='#'>Profile</a></li>
+          <li><a href='#'>Home</a></li>
         </ul>
       </div>
-    </nav>
+    
 
     <h1>Welcome to TaskMarket!</h1>
     
   <ul>
     <li>
-      <div id="first_task">
+      <div class="task" id="first_task">
         <ul>
           <li class = "name">Name: {{ Requester }}</li>
           <li class = "job">Job: {{ Job }}</li>
@@ -42,11 +39,11 @@
         </ul>
         <input class="submit-btn" type = "submit" value="Accept">
       </div><br>
-      <p id="description"> asdf </p>
+      <p class="description"> asdf </p>
     </li>
 
     <li>
-      <div id="second_task" >
+      <div class="task" id="second_task" >
         <ul>
           <li class = "name">Name: {{ Requester }}</li>
           <li class = "job">Job: {{ Job }}</li>
@@ -55,10 +52,11 @@
         </ul>
         <input class="submit-btn" type = "submit" value="Accept">
       </div><br>
+      <p class="description"> asdf </p>
     </li>
 
     <li>
-      <div id="third_task" >
+      <div class="task" id="third_task" >
         <ul>
           <li class = "name">Name: {{ Requester }}</li>
           <li class = "job">Job: {{ Job }}</li>
@@ -67,6 +65,7 @@
         </ul>
         <input class="submit-btn" type = "submit" value="Accept">
       </div><br>
+      <p class="description"> asdf </p>
     </li>
   </ul>
 
