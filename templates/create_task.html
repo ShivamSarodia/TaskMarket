@@ -36,18 +36,19 @@
       <h2>What task do you want completed?</h2>
       <form>
           <p>Job Title: <br></p>
-          <input class="input-field" type="text" name="title" value=""><br><br>
+          <input id="title-input" class="input-field" type="text" name="title" value=""><br><br>
           <p>Location<br></p>
           <input class="input-field" type="text" name="location" value=""><br><br>
           <p>Payment<br></p>
-          <input class="input-field" type="text" name="price" value=""><br><br>
+          <input id="salary-input" class="input-field" type="text" name="price" value=""><br><br>
           <p>Description<br></p>
-          <textarea name="Text1" cols="40" rows="5" ... ></textarea>
+          <textarea id="descrip-input" name="Text1" cols="40" rows="5" ... ></textarea>
           <input type="button" value="Submit" onclick="add_task()" class="btn" style="width: 15%; margin-left: 15%; height: 50px; margin-top: 50px;">
       </form> 
      
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="{{ url_for('static', filename='js/create_task.js') }}"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script type="text/javascript" src="{{ url_for('static', filename='js/fb.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/create_task.js') }}"></script>
   </body>
 </html>
