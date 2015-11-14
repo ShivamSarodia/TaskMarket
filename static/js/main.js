@@ -59,19 +59,12 @@ function sendLogon(response)
 	$.ajax({
 	    method: "POST",
 	    url: "/login-back",
-	    data: { "uid": uid, "accessToken": accessToken }
+	    data: { "uid": uid, "accessToken": accessToken, "fullName": name}
 	}).done(function( msg ) {
 	    console.log(msg);
 	});
     });    
 }
-
-$( "#first_task" ).click(function() {
-	console.log("asf");
-  $( "#description" ).slideToggle( "slow", function() {
-    // Animation complete.
-  });
-});
 
 function isLoggedIn() // DO NOT CALL ON PAGE LOAD!!!
 {

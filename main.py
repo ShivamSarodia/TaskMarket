@@ -13,10 +13,11 @@ def create_task():
 
 @app.route("/login-back", methods = ['POST'])
 def login():
+    print(request.form["accessToken"])
     if request.method == "POST":
         uid = request.form["uid"]
         accessToken = request.form["accessToken"]
-        fullname = request.form["fullname"]
+        fullname = request.form["fullName"]
 
         if len(query_db("select * from users where fb_user_id = ?", [uid])) == 0: #if the user doesn't exist
               print("Adding new user")
