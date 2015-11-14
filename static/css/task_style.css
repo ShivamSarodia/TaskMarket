@@ -1,49 +1,22 @@
-#first_task {
-	width:500px; 
-	height:140px;
-	padding:10px; 
-	border:5px 
-	solid gray; 
-	margin:0;
-	color: blue;
+html, body {
+    margin: 0;
+    padding: 0;
 }
 
-#second_task {
-	width:500px; 
-	height:140px;
-	padding:10px; 
-	border:5px 
-	solid gray; 
-	margin:0;
-	color: blue;
+html {
+    background: url(/static/img/chicago-skyline-2.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;		   
 }
 
-#third_task {
-	width:500px; 
-	height:140px;
-	padding:10px; 
-	border:5px 
-	solid gray; 
-	margin:0;
-	color: blue;
-}
-
-#left_side {
-	float: left;
-	width: 12px;
-}
-
-#right_side {
-	float: right;
-	width: 20px;
-}
-
-.submit-btn {
-	float: right;
-	vertical-align: top;
-}
-
-ul {
-	list-style-type: none;
-	float: left;
+#page-wrap {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    -moz-box-shadow: 0 0 20px black;
+    -webkit-box-shadow: 0 0 20px black;
+    box-shadow: 0 0 20px black;
 }

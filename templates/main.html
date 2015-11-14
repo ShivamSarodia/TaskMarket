@@ -15,70 +15,30 @@
 
   </head>
   <body>
-   
-      <div id='cssmenu'>
-        <ul>
-          <li class='active'><a href='#'>TaskMarket</a></li>
-   
-          <li><a href='#'>Login</a></li>
-          <li><a href='#'>Profile</a></li>
-          <li><a href='#'>Home</a></li>
-        </ul>
-      </div>
     
-<div id="left_side">
-	<ul>
-    <li>
-      <div class="task" id="first_task">
-        <ul>
-          <li class = "name">Name: {{ Requester }}</li>
-          <li class = "job">Job: {{ Job }}</li>
-          <li class = "location">Location: {{ Location }}</li>
-          <li class = "price">Price: ${{ Price }}</li>
-        </ul>
-        <input class="submit-btn" type = "submit" value="Accept">
-      </div>
-      <p class="description"> asdf </p>
-    </li>
-      <li>
-        <div class="task" id="second_task" >
-          <ul>
-            <li class = "name">Name: {{ Requester }}</li>
-            <li class = "job">Job: {{ Job }}</li>
-            <li class = "location">Location: {{ Location }}</li>
-            <li class = "price">Price: ${{ Price }}</li>
-          </ul>
-          <input class="submit-btn" type = "submit" value="Accept">
-        </div>
-        <p class="description"> asdf </p>
-      </li>
+    <div id='cssmenu'>
+      <ul>
+        <li><a href='#'>TaskMarket</a></li>
+	
+        <li class='active'><a href='#'>Login</a></li>
+        <li class='active'><a href='#'>Profile</a></li>
+        <li class='active'><a href='#'>Home</a></li>
+      </ul>
+    </div>
+    
+    <div id="left_side">
+    </div>
 
-      <li>
-        <div class="task" id="third_task" >
-          <ul>
-            <li class = "name">Name: {{ Requester }}</li>
-            <li class = "job">Job: {{ Job }}</li>
-            <li class = "location">Location: {{ Location }}</li>
-            <li class = "price">Price: ${{ Price }}</li>
-          </ul>
-          <input class="submit-btn" type = "submit" value="Accept">
-        </div>
-        <p class="description"> asdf </p>
-      </li>
-    </ul>
-  </div>
-
-  <div id="right_side">
-    <div id="map2"></div>
-  </div>
+    <div id="right_side">
+    </div>
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='js/fb.js') }}"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='js/navbar.js') }}"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='js/map2.js') }}"></script>
-  <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArxQsajqZTXZg8DmGzyaFDrteikvf8gK8&signed_in=true&callback=initMap"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/fb.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/map2.js') }}"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArxQsajqZTXZg8DmGzyaFDrteikvf8gK8&signed_in=true&callback=initMap"></script>
   </body>
 </html>

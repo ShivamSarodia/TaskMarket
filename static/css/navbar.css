@@ -41,6 +41,7 @@ body {
 #cssmenu > ul {
   background: #3db2e1;
   width: 100%;
+  border-bottom: 3px white solid;
 }
 #cssmenu > ul > li:first-child {
   float: left;
