@@ -75,6 +75,13 @@ function sendLogon(response)
     });    
 }
 
+$( "#first_task" ).click(function() {
+	console.log("asf");
+  $( "#description" ).slideToggle( "slow", function() {
+    // Animation complete.
+  });
+});
+
 function isLoggedIn() // DO NOT CALL ON PAGE LOAD!!!
 {
     return (FB.getAuthResponse() != null);
