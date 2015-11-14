@@ -12,12 +12,12 @@ function initMap() {
     ]/*array of arrays (title, lat, long) from shivam*/
 
   for (i = 0; i <= markers.length(); i++)
-  var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+  var position = new google.maps.LatLng(markers[i].lat, markers[i].lon);
         bounds.extend(position);
         marker = new google.maps.Marker({
             position: position,
             map: map,
-            title: markers[i][0]
+            title: markers[i].title
   }
   );
 }
