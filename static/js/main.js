@@ -49,7 +49,6 @@ on_login_click = function() {
 
 function sendLogon(response)
 {
-    console.log(response)
     var uid = response.authResponse.userID;
     var accessToken = response.authResponse.accessToken;
 

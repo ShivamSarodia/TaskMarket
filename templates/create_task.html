@@ -4,11 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>TaskMarket</title>
 
-    <script src="{{ url_for('static', filename='js/create_task.js') }}"></script>
-    <![endif]-->
+    <title>TaskMarket</title>
   </head>
   <body>
     <nav class="navbar navbar-inverse" role="navigation">
@@ -50,7 +47,7 @@
       </form> 
      
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/create_task.js') }}"></script>
   </body>
 </html>
