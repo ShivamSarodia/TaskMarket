@@ -15,6 +15,10 @@ def create_task():
 def profile():
     return render_template('profile.html')
 
+@app.route("/fakemap")
+def fakemap():
+    return render_template('fakemap.html')
+
 @app.route("/login-back", methods = ['POST'])
 def login():
     print(request.form["accessToken"])
