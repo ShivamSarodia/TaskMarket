@@ -67,6 +67,7 @@ html {
 .address_description {
     width: 70%;
     float:left;
+    text-align: left;
 }
 
 .accept_button{
