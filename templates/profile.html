@@ -1,70 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>TaskMarket</title>
-  </head>
-  <body>
-      <div id='cssmenu'>
-        <ul>
-          <li class='active'><a href='\'>TaskMarket</a></li>
-   
-          <li id="login"><a href='#'>Logout</a></li> <!--TODO: implement-->
-          <li id="profile"><a href='/profile'>Profile</a></li>
-          <li><a href='\'>Home</a></li>
-        </ul>
-      </div>
-     
-    <header>
-      <div class = "account">
-        <p>Hi, <a href="#">{{ User }}</a></p>
-      </div>
-    </header>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/profile_style.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/task_style.css') }}">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>TaskMarket</title>
+</head>
+<body>
+  <div id='cssmenu'>
+    <ul>
+      <li class='active'><a href='\'>TaskMarket</a></li>
 
-    <div id = "content">
+      <li id="login"><a href='#'>Logout</a></li> <!--TODO: implement-->
+      <li id="profile"><a href='/profile'>Profile</a></li>
+      <li><a href='\'>Home</a></li>
+    </ul>
+  </div>
+
+  <header>
+  </header>
+
+  <div class="container">
+
+
+    <div class = "left">
       <div id="personal-info">
-        <h2 style="text-align:left; margin-bottom: 0">Your Info</h2>
-        <div class="left">
-          <p>Name: {{ Name }}</p>
-          <p>Email: {{ Email }}</p>
-        </div>
+        <h2>Your Info</h2>
+        
+        <p>Name: Andrew Wang</p>
+        <p>Email: astronautwang</p>
       </div>
+    </div>
+
+
+    <div class="middle">
       <div id="current-jobs">
         <h2>Your Current Jobs</h2>
-        <div class = "job-name">
-          <div class = "description">
-            <li class = "name">Name: {{ Requester }}</li>
-            <li class = "job">Job: {{ Job }}</li>
-            <li class = "location">Location: {{ Location }}</li>
-            <li class = "price">Price: ${{ Price }}</li>
-
+        <div class="other_job">
+          <div class="title">Sex</div>
+          <div class="other_job_info">
+            <span class="employer">Employer: Andrew Wang</span>
+            <span class="price">$10</span>
+            <div class="status">Completed</div>
           </div>
-          
+        </div>
+        <div style="display: none;" class="other_job_info-info">
+          <div class="address_description">
+            <div class="address">123 seas</div>
+            <div class="description">asdfqklwef</div>
+          </div>
         </div>
       </div>
       
-      <div id = "jobs-posted">
-        <h2>Your Jobs Posted</h2>
-
-
-        <div class = "job-name">
-          <div class = "description">
-            <li class = "name">Name: {{ Name }}</li>
-            <li class = "job">Job: {{ Job }}</li>
-            <li class = "location">Location: {{ Location }}</li>
-            <li class = "price">Price: ${{ Price }}</li>
-          </div>
-          
-        </div>
-
     </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/navbar.js') }}"></script>
-  </body>
+
+
+    <div class="right">
+      <div id = "jobs-posted">
+        <h2>Your Jobs Posted</h2>
+        <div class="your_job">
+          <div class="title">More Sex</div>
+          <div class="your_job_info">
+            <span class="employee">Accepted by: Andrew Wang</span>
+            <span class="price">$20</span>
+            <div class="status">Completed</div>
+          </div>
+        </div>
+        <div style="display: none;" class="your_job_info-info">
+          <div class="address_description">
+            <div class="address">11431 verna ct</div>
+            <div class="description">asdf</div>
+          </div>
+          <div class="pay_button">
+            <a href='#'>
+              <input class="submit-btn" type = "submit" value="Pay">
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+
+
+  </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
 </html>

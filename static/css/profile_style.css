@@ -1,0 +1,113 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    /*position: fixed;*/
+}
+
+html {
+    background: url(/static/img/chicago-skyline-2.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;		   
+}
+
+
+.left { 
+	float: left; width: 20%;
+	margin-left: 5%;
+}
+.right { 
+	float: right; 
+	width: 30%; 
+	margin-right: 5%
+} 
+.middle { 
+	display: inline-block; 
+	width: 30%;
+	
+}
+
+.other_job {
+    width: 100%;
+    display: inline-block;
+    border: 3px rgba(61, 178, 255, 0.8) solid;
+    background-color: rgba(240,240,240,1);
+    padding: 10px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.your_job {
+    width: 100%;
+    display: inline-block;
+    border: 3px rgba(61, 178, 255, 0.8) solid;
+    background-color: rgba(240,240,240,1);
+    padding: 10px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.other_job_info-info {
+    width: 100%;
+    display: inline-block;
+    border: 3px rgba(61, 178, 255, 0.8) solid;
+    background-color: rgba(240,240,240,1);
+    padding: 10px;
+    text-align: center;
+    border-top:none;
+}
+
+.your_job_info-info {
+    width: 100%;
+    display: inline-block;
+    border: 3px rgba(61, 178, 255, 0.8) solid;
+    background-color: rgba(240,240,240,1);
+    padding: 10px;
+    text-align: center;
+    border-top:none;
+}
+
+.employer {
+	float:left;
+	width:30%;
+}
+
+.price {
+
+}
+
+.status {
+	float:right;
+	width: 30%;
+}
+
+.employee {
+	float:left;
+	width:30%;
+
+}
+
+.address {
+	float: left;
+	width: 20%;
+}
+
+.your_description {
+	float: right;
+	width: 50%;
+}
+
+.other_description {
+	float:right;
+	width:80%;
+}
+
+.pay_button{
+    width: 30%;
+    float:right;
+}
+
+
