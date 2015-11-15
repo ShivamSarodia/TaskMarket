@@ -15,7 +15,8 @@ def main():
                   "address": task['addr'],
                   "description": task['description'],
                   "lat": task['lat'],
-                  "lng": task['lon']
+                  "lng": task['lon'],
+                  "id": task["task_id"]
     } for task in query_db("select * from tasks where status='pending'")]
     return render_template('main.html', task_list = task_list)
 
@@ -91,6 +92,18 @@ def make_task():
         task_id = query_db("select last_insert_rowid();", one=True)[0]
         query_db("insert into tasks_made (user_id, task_id) values (?, ?)", [poster_id, task_id])
 
+        return "success"
+    else:
+        print("Not a POST")
+        return ""
+
+@app.route("/accept-task-back", methods = ['POST'])
+def accept_task():
+    if request.method == "POST":
+        task_id = request.form["tid"]
+        user_id = request.cookies.get('uid')
+        query_db("update tasks set status = 'accepted', accepter_id = ? where task_id = ?", [user_id, task_id])
+        query_db("insert into tasks_accepted (user_id, task_id) values (?, ?)", [user_id, task_id])
         return "success"
     else:
         print("Not a POST")
