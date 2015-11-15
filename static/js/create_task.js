@@ -22,6 +22,7 @@ add_task = function() {
 		    }).done(function(msg)
 			    {
 				console.log(msg);
+				window.location = "/";
 			    });
 
 		} 

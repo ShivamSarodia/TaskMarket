@@ -17,8 +17,18 @@ $(document).ready(function(){
 	    method: "POST",
 	    url: "/accept-task-back",
 	    data: {"tid": $(this).data("taskid")}
-	}).done(function(msg){console.log(msg);});
+	}).done(function(msg){
+	    console.log(msg);
+	    window.location = "/profile";
+	});
     })
+    setTimeout(function(){
+	console.log("called timeout");
+	FB.getLoginStatus(function(response) {
+	    if (response.status === 'connected') {
+		$("li#login").innerHtml = "";
+	    }
+	});}, 1000);
 });
 
 

@@ -7,10 +7,10 @@ function initMap() {
 	    center: myLatLng
 	});
 
-	var mymarker = new google.maps.Marker({
-	    position: myLatLng,
-	    map: map,
-	});
+	// var mymarker = new google.maps.Marker({
+	//     position: myLatLng,
+	//     map: map,
+	// });
 
 	for (i = 0; i < markers.length; i++)
 	{
