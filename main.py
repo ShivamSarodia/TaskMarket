@@ -26,8 +26,34 @@ def create_task():
 @app.route("/profile")
 def profile():
     uid = request.cookies.get('uid')
+    print(uid)
     fullname = query_db("select * from users where fb_user_id = ?", [uid], True)['fullName']
-    return render_template("profile.html", fullname=fullname)
+    jobs = [query_db("select * from tasks where task_id=?", [task['task_id']], True)
+                for task in query_db("select * from tasks_accepted where user_id=?", [uid])]
+    cur_jobs = [{"title": job["title"],
+                 "employer": query_db("select * from users where fb_user_id = ?", [job["poster_id"]], True)['fullName'],
+                 "salary": job["salary"],
+                 "status": job["status"],
+                 "address": job["addr"],
+                 "description": job["description"]} for job in jobs]
+
+    pjobs = [query_db("select * from tasks where task_id=?", [task['task_id']], True)
+                for task in query_db("select * from tasks_made where user_id=?", [uid])]
+    
+    posted_jobs = []
+    for job in pjobs:
+        qval = query_db("select * from users where fb_user_id = ?", [job["accepter_id"]], True)
+        accepted = ""
+        if qval: accepted = qval['fullName']
+
+        posted_jobs.append({"title": job["title"],
+                        "accepted_by": accepted,
+                        "salary": job["salary"],
+                        "status": job["status"],
+                        "address": job["addr"],
+                        "description": job["description"]})
+        
+    return render_template("profile.html", fullname=fullname, cur_jobs = cur_jobs, posted_jobs = posted_jobs)
 
 @app.route("/login-back", methods = ['POST'])
 def login():

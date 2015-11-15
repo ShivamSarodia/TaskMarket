@@ -29,7 +29,7 @@
 
     <div class = "left">
       <div id="personal-info">
-        <h2>Your Info</h2>
+        <h2>Personal Info</h2>
         
         <p>Name: {{ fullname }}</p>
       </div>
@@ -38,21 +38,23 @@
 
     <div class="middle">
       <div id="current-jobs">
-        <h2>Your Current Jobs</h2>
+        <h2>Current Jobs</h2>
+	{% for cur_job in cur_jobs %}
         <div class="other_job">
-          <div class="title">Sex</div>
+          <div class="title">{{ cur_job.title }}</div>
           <div class="other_job_info">
-            <span class="employer">Employer: Andrew Wang</span>
-            <span class="price">$10</span>
-            <div class="status">Completed</div>
+            <span class="employer">Employer: {{ cur_job.employer }}</span>
+            <span class="price">{{ cur_job.salary }}</span>
+            <div class="status">{{ cur_job.status }}</div>
           </div>
         </div>
         <div style="display: none;" class="other_job_info-info">
           <div class="address_description">
-            <div class="address">123 seas</div>
-            <div class="description">asdfqklwef</div>
+            <div class="address">{{ cur_job.address }}</div>
+            <div class="description">{{ cur_job.description }}</div>
           </div>
         </div>
+	{% endfor %}
       </div>
       
     </div>
@@ -61,19 +63,20 @@
 
     <div class="right">
       <div id = "jobs-posted">
-        <h2>Your Jobs Posted</h2>
+        <h2>Jobs Posted</h2>
+	{% for pjob in posted_jobs %}
         <div class="your_job">
-          <div class="title">More Sex</div>
+          <div class="title">{{ pjob.title }}</div>
           <div class="your_job_info">
-            <span class="employee">Accepted by: Andrew Wang</span>
-            <span class="price">$20</span>
-            <div class="status">Completed</div>
+            <span class="employee">Accepted by: {{ pjob.accepted_by }}</span>
+            <span class="price">${{ pjob.salary }}</span>
+            <div class="status">{{ pjob.status }}</div>
           </div>
         </div>
         <div style="display: none;" class="your_job_info-info">
           <div class="address_description">
-            <div class="address">11431 verna ct</div>
-            <div class="description">asdf</div>
+            <div class="address">{{ pjob.address }}</div>
+            <div class="description">{{ pjob.description }}</div>
           </div>
           <div class="pay_button">
             <a href='#'>
@@ -81,6 +84,7 @@
             </a>
           </div>
         </div>
+	{% endfor %}
       </div>
 
     </div>
