@@ -34,7 +34,7 @@
      <div class="task-cont">
        <div class="title">{{task.title}}</div>
        <div class="other-info">
-         <span class="salary">${{task.salary}}</span>
+         <span class="salary">${{ "%.2f" % task.salary}}</span>
          <span class="location">{{task.distance}}</span>
          <span class="person">{{task.requester}}</span>
        </div>

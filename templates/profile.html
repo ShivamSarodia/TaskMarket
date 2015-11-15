@@ -45,7 +45,7 @@
           <div class="title">{{ cur_job.title }}</div>
           <div class="other_job_info">
             <span class="employer">Employer: {{ cur_job.employer }}</span>
-            <span class="price">${{ cur_job.salary }}</span>
+            <span class="price">${{ "%.2f" % cur_job.salary }}</span>
             <div class="status">{{ cur_job.status }}</div>
           </div>
         </div>
@@ -70,7 +70,7 @@
           <div class="title">{{ pjob.title }}</div>
           <div class="your_job_info">
             <span class="employee">Accepted by: {{ pjob.accepted_by }}</span>
-            <span class="price">${{ pjob.salary }}</span>
+            <span class="price">${{ "%.2f" % pjob.salary }}</span>
             <div class="status">{{ pjob.status }}</div>
           </div>
         </div>
