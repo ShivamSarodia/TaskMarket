@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-      #map2{
+      #map{
         height:100%;
       }
       </style>
@@ -63,7 +63,7 @@
 
       </div>
       <div id="right_side">
-	     <div id="map2">
+	     <div id="map">
         </div>
       </div>
     </div>
@@ -74,20 +74,33 @@
     <script type="text/javascript" src="{{ url_for('static', filename='js/fb.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/navbar.js') }}"></script>
-    <script> function initMap() {
-  var myLatLng = {lat: -25.363, lng: 131.044};
+    <script>function initMap() {
+  navigator.geolocation.getCurrentPosition(function(response){
+    var myLatLng = {lat: response.coords.latitude, lng: response.coords.longitude};
 
-  var map = new google.maps.Map(document.getElementById('map2'), {
+  var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 4,
     center: myLatLng
   });
 
-  var marker = new google.maps.Marker({
+  var mymarker = new google.maps.Marker({
     position: myLatLng,
     map: map,
-    title: 'Hello World!'
   });
-} </script>
+
+  var markers = [] /*nested arrays of every posting from shivam*/
+
+  for (i = 0; i <= markers.length; i++)
+  var position = new google.maps.LatLng(markers[i].lat, markers[i].lon);
+        bounds.extend(position);
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: markers[i].title
+  }
+  );
+  })
+}</script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArxQsajqZTXZg8DmGzyaFDrteikvf8gK8&signed_in=true&callback=initMap"></script>
   </body>
