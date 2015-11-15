@@ -25,8 +25,11 @@ $(document).ready(function(){
     setTimeout(function(){
 	console.log("called timeout");
 	FB.getLoginStatus(function(response) {
+	    console.log("Got response");
+	    console.log(response);
 	    if (response.status === 'connected') {
-		$("li#login").innerHtml = "";
+		console.log("yee");
+		$("li#login").html("&nbsp");
 	    }
 	});}, 1000);
 });

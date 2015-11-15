@@ -17,6 +17,16 @@ window.fbAsyncInit = function() {
     });
 }
 
+setTimeout(function(){
+    console.log("called timeout");
+    FB.getLoginStatus(function(response) {
+	console.log("Got response");
+	console.log(response);
+	if (response.status === 'connected') {
+	    $("li#login").html("&nbsp");
+	}
+    });}, 1000);
+
 on_login_click = function() {
     console.log("Login clicked");
     FB.getLoginStatus(function(response) {
