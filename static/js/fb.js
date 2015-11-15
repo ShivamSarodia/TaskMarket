@@ -24,8 +24,17 @@ setTimeout(function(){
 	console.log(response);
 	if (response.status === 'connected') {
 	    $("li#login").html("&nbsp");
+	    FB.api('/me', function(response) {
+		var name = response.name;
+		$("li#profile>a").html(name);
+	    });
 	}
-    });}, 1000);
+    });
+
+    
+
+
+}, 1000);
 
 on_login_click = function() {
     console.log("Login clicked");
@@ -65,7 +74,7 @@ function sendLogon(response)
     FB.api('/me', function(response) {
 	var name = response.name;
 
-	$.ajax({
+	$.Ajax({
 	    method: "POST",
 	    url: "/login-back",
 	    data: { "uid": uid, "accessToken": accessToken, "fullName": name}
