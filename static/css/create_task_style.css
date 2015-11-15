@@ -14,6 +14,9 @@ html {
     background-size: cover;        
 }
 
+h2 {
+    color:white;
+}
 #wrapper {
     width:50%;
     margin: 0 auto;
@@ -34,12 +37,14 @@ html {
 }
 
 p {
-    margin-bottom:15px;
+    margin-bottom:5px;
     color:#ffffff;
 }
 
 textarea {
-    margin-bottom:30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .title-input {
@@ -48,6 +53,7 @@ textarea {
 
 .input-field {
     margin-bottom:15px;
+    height:15px;
 }
 
 .salary-input {
