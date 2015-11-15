@@ -1,6 +1,7 @@
 html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 html {
@@ -11,12 +12,56 @@ html {
     background-size: cover;		   
 }
 
-#page-wrap {
-    width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background: white;
-    -moz-box-shadow: 0 0 20px black;
-    -webkit-box-shadow: 0 0 20px black;
-    box-shadow: 0 0 20px black;
+#wrap {
+    height: 100%;
+    width:100%;
+    margin:0 auto;
+}
+
+#left_side {
+    float:left;
+    width:50%;
+    height: 100%;
+
+    margin: 20px;
+}
+
+#right_side {
+    float:right;
+    width:50%;
+    height: 100%;
+
+    margin: 20px;
+}
+
+.task-cont {
+    width: 80%;
+    display: inline-block;
+    border: 3px rgba(61, 178, 255, 0.8) solid;
+    background-color: rgba(240,240,240,1);
+    padding: 10px;
+}
+
+.title {
+    float: left;
+    width: 100%;
+    font-size: 18pt;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.other-info {
+    font-size: 13pt;
+}
+
+.salary {
+    width: 33%;
+    float: right;
+    margin-right: 20px;
+}
+
+.person {
+    float: left;
+    margin-left: 20px;
+    width: 33%;
 }
