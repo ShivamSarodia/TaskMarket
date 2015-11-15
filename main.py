@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, g
+from flask import Flask, render_template, request, g, make_response
 import sqlite3
 
 app = Flask(__name__)
@@ -25,11 +25,9 @@ def create_task():
 
 @app.route("/profile")
 def profile():
-    return render_template('profile.html')
-
-@app.route("/fakemap")
-def fakemap():
-    return render_template('fakemap.html')
+    uid = request.cookies.get('uid')
+    fullname = query_db("select * from users where fb_user_id = ?", [uid], True)['fullName']
+    return render_template("profile.html", fullname=fullname)
 
 @app.route("/login-back", methods = ['POST'])
 def login():
@@ -43,10 +41,12 @@ def login():
               print("Adding new user")
               query_db("insert into users (fb_user_id, fullname) values (?, ?)", [uid, fullname])
 
-        return "success"
+        resp = make_response("success")
+        resp.set_cookie("uid", uid)
+        return resp
     else:
         print("Not a POST")
-    return ""
+        return ""
 
 @app.route("/make-task-back", methods = ['POST'])
 def make_task():
