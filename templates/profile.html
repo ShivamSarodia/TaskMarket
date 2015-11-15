@@ -48,16 +48,15 @@
             <div class="address">{{ cur_job.address }}</div>
             <div class="description">{{ cur_job.description }}</div>
           </div>
-          <div class="pay_button">
-       
-              <input class="submit-btn" type = "submit" value="Cancel">
-         
-          </div>
-          <div class="pay_button_2">
-       
-              <input class="submit-btn" type = "submit" value="Completed">
-         
-          </div>
+	  
+	  <div class="button-cont">
+            <div class="pay_button">
+              <input class="submit-btn" data-taskid="{{ cur_job.id }}" data-action="cancel_current" type = "submit" value="Cancel">
+            </div>
+            <div class="pay_button_2">
+              <input class="submit-btn" data-taskid="{{ cur_job.id }}" data-action="complete_current" type = "submit" value="Completed">
+            </div>
+	  </div>
         </div>
 	{% endfor %}
       </div>
@@ -83,18 +82,15 @@
             <div class="address">{{ pjob.address }}</div>
             <div class="your_description">{{ pjob.description }}</div>
           </div>
-          <div class="button-holder">
-          <div class="pay_button">
-            <a href='#'>
-              <input class="submit-btn" type = "submit" value="Pay">
-            </a>
-          </div>
-          <div class="pay_button_2">
-           
-              <input class="submit-btn" type = "submit" value="Cancel">
-            
-          </div>
-        </div>
+
+	  <div class="button-cont">
+            <div class="pay_button">
+              <input class="submit-btn" data-taskid="{{ pjob.id }}" data-action="cancel_posted" type = "submit" value="Cancel">
+            </div>
+            <div class="pay_button_2">
+              <input class="submit-btn" data-taskid="{{ pjob.id }}" data-action="pay_posted" type = "submit" value="Paid">
+            </div>
+	  </div>
         </div>
 	{% endfor %}
       </div>

@@ -5,9 +5,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
-    for task in query_db("select * from tasks where status='pending'"):
-        print(task['status'])
-        
     task_list = [{"title": task['title'],
                   "salary": task['salary'],
                   "distance": "",
@@ -29,14 +26,15 @@ def profile():
     uid = request.cookies.get('uid')
     print(uid)
     fullname = query_db("select * from users where fb_user_id = ?", [uid], True)['fullName']
-    jobs = [query_db("select * from tasks where task_id=?", [task['task_id']], True)
+    jobs = [query_db("select * from tasks where task_id=? and status='accepted'", [task['task_id']], True)
                 for task in query_db("select * from tasks_accepted where user_id=?", [uid])]
     cur_jobs = [{"title": job["title"],
                  "employer": query_db("select * from users where fb_user_id = ?", [job["poster_id"]], True)['fullName'],
                  "salary": job["salary"],
                  "status": job["status"],
                  "address": job["addr"],
-                 "description": job["description"]} for job in jobs]
+                 "description": job["description"],
+                 "id": job["task_id"]} for job in jobs]
 
     pjobs = [query_db("select * from tasks where task_id=?", [task['task_id']], True)
                 for task in query_db("select * from tasks_made where user_id=?", [uid])]
@@ -48,16 +46,18 @@ def profile():
         if qval: accepted = qval['fullName']
 
         posted_jobs.append({"title": job["title"],
-                        "accepted_by": accepted,
-                        "salary": job["salary"],
-                        "status": job["status"],
-                        "address": job["addr"],
-                        "description": job["description"]})
+                            "accepted_by": accepted,
+                            "salary": job["salary"],
+                            "status": job["status"],
+                            "address": job["addr"],
+                            "description": job["description"],
+                            "id": job["task_id"]})
         
     return render_template("profile.html", fullname=fullname, cur_jobs = cur_jobs, posted_jobs = posted_jobs)
 
 @app.route("/login-back", methods = ['POST'])
 def login():
+    print("LOGIN!!!")
     print(request.form["accessToken"])
     if request.method == "POST":
         uid = request.form["uid"]
@@ -104,6 +104,29 @@ def accept_task():
         user_id = request.cookies.get('uid')
         query_db("update tasks set status = 'accepted', accepter_id = ? where task_id = ?", [user_id, task_id])
         query_db("insert into tasks_accepted (user_id, task_id) values (?, ?)", [user_id, task_id])
+        return "success"
+    else:
+        print("Not a POST")
+        return ""
+
+@app.route("/profile-back", methods = ['POST'])
+def profile_back():
+    if request.method == "POST":
+        task_id = request.form["tid"]
+        action = request.form["action"]
+        user_id = request.cookies.get('uid')
+
+        if action == "cancel_posted":
+            query_db("delete from tasks where task_id = ?", [task_id])
+            query_db("delete from tasks_made where task_id=?", [task_id])
+            query_db("delete from tasks_accepted where task_id=?", [task_id])
+        elif action == "pay_posted":
+            query_db("update tasks set status = 'completed' where task_id = ?", [task_id])
+        elif action == "cancel_current":
+            query_db("update tasks set status = 'pending', accepter_id = '' where task_id = ?", [task_id])
+        elif action == "complete_current":
+            query_db("update tasks set status = 'completed-paid' where task_id = ?", [task_id])
+
         return "success"
     else:
         print("Not a POST")

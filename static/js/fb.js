@@ -74,7 +74,7 @@ function sendLogon(response)
     FB.api('/me', function(response) {
 	var name = response.name;
 
-	$.Ajax({
+	$.ajax({
 	    method: "POST",
 	    url: "/login-back",
 	    data: { "uid": uid, "accessToken": accessToken, "fullName": name}

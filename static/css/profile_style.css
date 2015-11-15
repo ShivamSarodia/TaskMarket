@@ -122,29 +122,33 @@ h2 {
     font-style:italic;
 }
 
-.your_description {
-}
-
-.other_description {
-}
-
-#button-holder {
-    display:inline-block;
+.button-cont {
+    display: table;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    width: 100%;
 }
 
 .pay_button{
     width: 30%;
     margin: 0 auto;
-    float:left;
+    text-align: center;
+    display: table-cell;
+}
 
+.pay_button > .submit-btn {
+    background-color: #C52D42;
+}
+
+.pay_button_2 > .submit-btn {
+    background-color: #52B55E;
 }
 
 .pay_button_2{
     width: 30%;
     margin: 0 auto;
-    float:right;
-
-    
+    text-align: center;
+    display: table-cell;
 }
 
 h2 {
