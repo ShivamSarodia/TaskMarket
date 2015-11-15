@@ -28,6 +28,7 @@ def profile():
     fullname = query_db("select * from users where fb_user_id = ?", [uid], True)['fullName']
     jobs = [query_db("select * from tasks where task_id=? and status='accepted'", [task['task_id']], True)
                 for task in query_db("select * from tasks_accepted where user_id=?", [uid])]
+    jobs = filter(lambda x: (x is not None), jobs)
     cur_jobs = [{"title": job["title"],
                  "employer": query_db("select * from users where fb_user_id = ?", [job["poster_id"]], True)['fullName'],
                  "salary": job["salary"],
