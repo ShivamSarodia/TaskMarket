@@ -33,19 +33,20 @@
             <p>Job Title: </p>
             <input id="title-input" class="input-field" type="text" name="title" value="" maxlength = "30">
             <p>Location</p>
-            <input class="input-field" type="text" name="location" value="" maxlength="30">
+            <input type="text" id="my-address" name="location" class="input-field">
             <p>Payment</p>
             <input id="salary-input" class="input-field" type="number" step="0.01" name="price" value="">
             <p>Description</p>
-            <textarea id="descrip-input" name="Text1" cols="40" rows="6"></textarea>
+            <textarea id="descrip-input" name="Text1" cols="40" rows="8" maxlength="140"></textarea>
             <input type="button" value="Submit" onclick="add_task()" class="btn">
         </form> 
       </div>
      
-
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
       <script type="text/javascript" src="{{ url_for('static', filename='js/fb.js') }}"></script>
       <script src="{{ url_for('static', filename='js/create_task.js') }}"></script>
       <script type="text/javascript" src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+
   </body>
 </html>

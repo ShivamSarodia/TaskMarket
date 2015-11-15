@@ -1,26 +1,65 @@
+$(document).ready(function() {initialize();});
 add_task = function() {
-    FB.getLoginStatus(function(response) {
-	if(response.status === 'connected')
-	{
-	    $.ajax({
-		method: "POST",
-		url: "/make-task-back",
-		data: { "title": $("#title-input").val(),
-			"description": $("#descrip-input").val(),
-			"salary": $("#salary-input").val(),
-			"lat" : 0, //TODO: Make this actually work
-			"lon" : 0, 
+	FB.getLoginStatus(function(response) {
+		if(response.status === 'connected')
+		{
+			$.ajax({
+				method: "POST",
+				url: "/make-task-back",
+				data: { "title": $("#title-input").val(),
+				"description": $("#descrip-input").val(),
+				"salary": $("#salary-input").val(),
+				"address": codeAddress()['add'],
+			"lat" : codeAddress()['lat'], //TODO: Make this actually work
+			"lon" : codeAddress()['lon'], 
 			"uid": response.authResponse.userID
-		      }
-	    }).done(function(msg)
-		    {
-			console.log(msg);
-		    });
-
-	}
-	else
+		}
+	}).done(function(msg)
 	{
-	    console.error("Not connected");
-	}
-    });
+		console.log(msg);
+	});
+
+}
+else
+{
+	console.error("Not connected");
+}
+});
+}
+
+initialize = function() {
+	var address = (document.getElementById('my-address'));
+	var autocomplete = new google.maps.places.Autocomplete(address);
+	autocomplete.setTypes(['geocode']);
+	google.maps.event.addListener(autocomplete, 'place_changed', function() {
+		var place = autocomplete.getPlace();
+		if (!place.geometry) {
+			return;
+		}
+
+		var address = '';
+		if (place.address_components) {
+			address = [
+			(place.address_components[0] && place.address_components[0].short_name || ''),
+			(place.address_components[1] && place.address_components[1].short_name || ''),
+			(place.address_components[2] && place.address_components[2].short_name || '')
+			].join(' ');
+		}
+	});
+}
+codeAddress = function() {
+	geocoder = new google.maps.Geocoder();
+	var address = document.getElementById("my-address").value;
+	geocoder.geocode( { 'address': address}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+
+			alert("Latitude: "+results[0].geometry.location.lat());
+			alert("Longitude: "+results[0].geometry.location.lng());
+		} 
+
+		else {
+			alert("Geocode was not successful for the following reason: " + status);
+		}
+		return {lat: results[0].geometry.location.lat(), lon: results[0].geometry.location.lng(), add: address}
+	});
 }
