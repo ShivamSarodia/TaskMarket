@@ -124,9 +124,23 @@ html {
 .other_description {
 }
 
+#button-holder {
+    display:inline-block;
+}
+
 .pay_button{
     width: 30%;
     margin: 0 auto;
+    float:left;
+
+}
+
+.pay_button_2{
+    width: 30%;
+    margin: 0 auto;
+    float:right;
+
+    
 }
 
 h2 {

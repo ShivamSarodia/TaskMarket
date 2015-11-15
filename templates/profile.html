@@ -53,6 +53,11 @@
               <input class="submit-btn" type = "submit" value="Cancel">
          
           </div>
+          <div class="pay_button_2">
+       
+              <input class="submit-btn" type = "submit" value="Completed">
+         
+          </div>
         </div>
 	{% endfor %}
       </div>
@@ -78,11 +83,18 @@
             <div class="address">{{ pjob.address }}</div>
             <div class="your_description">{{ pjob.description }}</div>
           </div>
+          <div class="button-holder">
           <div class="pay_button">
             <a href='#'>
               <input class="submit-btn" type = "submit" value="Pay">
             </a>
           </div>
+          <div class="pay_button_2">
+           
+              <input class="submit-btn" type = "submit" value="Cancel">
+            
+          </div>
+        </div>
         </div>
 	{% endfor %}
       </div>
