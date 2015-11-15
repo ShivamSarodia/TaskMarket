@@ -111,5 +111,3 @@ $(document).ready(function() {
 });
 })(jQuery);
 
-
-
