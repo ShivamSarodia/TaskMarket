@@ -126,5 +126,10 @@ html {
     width: 33%;
 }
 
+#Tasks_Label {
+    color:white;
+    text-align:center;
+    font-size:30px;
+}
 
 

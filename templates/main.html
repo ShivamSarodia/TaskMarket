@@ -1,77 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>TaskMarket</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>TaskMarket</title>
 
-    <link href='https://fonts.googleapis.com/css?family=Montserrat|Hind:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat|Hind:400,700' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/task_style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/task_style.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}">
 
 
-  </head>
-  <body>
-    
-    <div id='cssmenu'>
-      <ul>
-        <li><a href='\'>TaskMarket</a></li>
-	
-        <li id="login" class='active'><a href='#' onclick="on_login_click()">Login</a></li>
-        <li id="profile" class='active'><a href='/profile'>Profile</a></li>
-        <li class='active'><a href='\'>Home</a></li>
-      </ul>
-    </div>
+</head>
+<body>
 
-    <div id="wrap">
-      <div id="left_side">
-	{% for task in task_list %}
-	<div class="task-cont">
-	  <div class="title">{{task.title}}</div>
-	  <div class="other-info">
-	    <span class="salary">${{task.salary}}</span>
-	    <span class="location">{{task.distance}}</span>
-	    <span class="person">{{task.requester}}</span>
-	  </div>
-	</div>
-	<div style="display: none;" class="info-info">
-	  <div class="address_description">
-	    <div class="address">{{task.address}}</div>
-	    <div class="description">{{task.description}}</div>
-	  </div>
-	  <div class="accept_button">
-	    <a href='#'>
-              <input class="submit-btn" type = "submit" value="Accept">
-	    </a>
-	  </div>
-	</div>
-	{% endfor %}
-      </div>
-      <div id="right_side">
-	     <div id="map">
-        </div>
+  <div id='cssmenu'>
+    <ul>
+      <li><a href='\'>TaskMarket</a></li>
+      <li><a href='\create-task'>Create Task</a></li>
+
+      <li id="login" class='active'><a href='#' onclick="on_login_click()">Login</a></li>
+      <li id="profile" class='active'><a href='/profile'>Profile</a></li>
+      <li class='active'><a href='\'>Home</a></li>
+    </ul>
+  </div>
+
+  <div id="wrap">
+    <div id="left_side">
+      <p id="Tasks_Label">Available Tasks</p>
+     {% for task in task_list %}
+     <div class="task-cont">
+       <div class="title">{{task.title}}</div>
+       <div class="other-info">
+         <span class="salary">${{task.salary}}</span>
+         <span class="location">{{task.distance}}</span>
+         <span class="person">{{task.requester}}</span>
+       </div>
+     </div>
+     <div style="display: none;" class="info-info">
+       <div class="address_description">
+         <div class="address">{{task.address}}</div>
+         <div class="description">{{task.description}}</div>
+       </div>
+       <div class="accept_button">
+         <a href='#'>
+          <input class="submit-btn" type = "submit" value="Accept">
+        </a>
       </div>
     </div>
+    {% endfor %}
+  </div>
+  <div id="right_side">
+    <div id="map">
+    </div>
+  </div>
+</div>
 
 
-    <script>markers =
-      [{% for task in task_list %}
-      {lat: {{ task.lat }}, lng: {{ task.lng }}, title: "{{ task.title }}"},
-      {% endfor %}]
+<script>markers =
+[{% for task in task_list %}
+{lat: {{ task.lat }}, lng: {{ task.lng }}, title: "{{ task.title }}"},
+{% endfor %}]
 
-    dests =  [{% for task in task_list %}
-      {lat: {{ task.lat }}, lng: {{ task.lng }}},
-      {% endfor %}]
+dests =  [{% for task in task_list %}
+{lat: {{ task.lat }}, lng: {{ task.lng }}},
+{% endfor %}]
 </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/fb.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/navbar.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/map.js') }}"></script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArxQsajqZTXZg8DmGzyaFDrteikvf8gK8&signed_in=true&callback=initMap"></script>
-  </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/fb.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/map.js') }}"></script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArxQsajqZTXZg8DmGzyaFDrteikvf8gK8&signed_in=true&callback=initMap"></script>
+</body>
 </html>
