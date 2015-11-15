@@ -79,7 +79,7 @@ html {
     border: 3px rgba(61, 178, 255, 0.8) solid;
     background-color: rgba(240,240,240,1);
     padding: 10px;
-    text-align: center;
+
     border-top:none;
 }
 
@@ -89,7 +89,7 @@ html {
     border: 3px rgba(61, 178, 255, 0.8) solid;
     background-color: rgba(240,240,240,1);
     padding: 10px;
-    text-align: center;
+
     border-top:none;
 }
 
@@ -114,22 +114,18 @@ html {
 }
 
 .address {
-	float: left;
-	width: 20%;
+	float:left;
+	width:60%;
 }
 
 .your_description {
-	float: right;
-	width: 50%;
 }
 
 .other_description {
-	float:right;
-	width:80%;
 }
 
 .pay_button{
-    width: 30%;
+    width: 20%;
     float:right;
 }
 

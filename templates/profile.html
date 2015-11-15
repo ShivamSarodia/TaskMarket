@@ -7,6 +7,7 @@
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/profile_style.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/task_style.css') }}">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat|Hind:400,700' rel='stylesheet' type='text/css'>
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <title>TaskMarket</title>
 </head>
@@ -53,6 +54,11 @@
           <div class="address_description">
             <div class="address">{{ cur_job.address }}</div>
             <div class="description">{{ cur_job.description }}</div>
+          </div>
+          <div class="pay_button">
+       
+              <input class="submit-btn" type = "submit" value="Cancel">
+         
           </div>
         </div>
 	{% endfor %}
