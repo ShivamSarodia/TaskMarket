@@ -1,0 +1,56 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    /*position: fixed;*/
+}
+
+html {
+    background: url(/static/img/chicago-skyline-2.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;        
+}
+
+#wrapper {
+    width:50%;
+    margin: 0 auto;
+    text-alight:center;
+
+    height: 100%;
+    padding: 20px 50px 20px 20px;
+    background-color: rgba(0,0,0,0.6);
+
+    overflow: scroll;
+    position: static;
+}
+
+#content {
+    text-align:center;
+    display: block; 
+    margin: 0px auto;
+}
+
+p {
+    margin-bottom:15px;
+    color:#ffffff;
+}
+
+textarea {
+    margin: 0px auto;
+    margin-bottom:30px;
+}
+
+.title-input {
+    margin-bottom:15px;
+}
+
+.input-field {
+    margin-bottom:15px;
+}
+
+.salary-input {
+    margin-bottom:15px;
+}

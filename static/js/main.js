@@ -51,10 +51,11 @@ function isLoggedIn() // DO NOT CALL ON PAGE LOAD!!!
     return (FB.getAuthResponse() != null);
 }
 
-$( ".task" ).click(function() {
-  $( ".description" ).slideToggle( "slow", function() {
-    // Animation complete.
-  });
+
+$(document).ready(function(){
+    $('.task-cont').click(function(){
+        $(this).next('.info-info').slideToggle("slow");
+    });
 });
 
 
