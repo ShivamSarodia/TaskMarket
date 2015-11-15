@@ -23,154 +23,37 @@
     
     <div id='cssmenu'>
       <ul>
-        <li><a href='#'>TaskMarket</a></li>
+        <li><a href='\'>TaskMarket</a></li>
 	
-        <li class='active'><a href='#'>Login</a></li>
-        <li class='active'><a href='#'>Profile</a></li>
-        <li class='active'><a href='#'>Home</a></li>
+        <li id="login" class='active'><a href='#' onclick="on_login_click()">Login</a></li>
+        <li id="profile" class='active'><a href='/profile'>Profile</a></li>
+        <li class='active'><a href='\'>Home</a></li>
       </ul>
     </div>
 
     <div id="wrap">
       <div id="left_side">
+	{% for task in task_list %}
 	<div class="task-cont">
-	  <div class="title">Task Title</div>
+	  <div class="title">{{task.title}}</div>
 	  <div class="other-info">
-	    <span class="salary">$10</span>
-	    <span class="location">0.2 miles away</span>
-	    <span class="person">Andrew Wang</span>
+	    <span class="salary">${{task.salary}}</span>
+	    <span class="location">{{task.distance}}</span>
+	    <span class="person">{{task.requester}}</span>
 	  </div>
 	</div>
-  <div style="display: none;" class="info-info">
-    <div class="address_description">
-      <div class="address">Address: 1431 Verna Ct</div>
-      <div class="description">Wash my clothes</div>
-    </div>
-    <div class="accept_button">
-      <a href='#'>
-        <input class="submit-btn" type = "submit" value="Accept">
-      </a>
-    </div>
-  </div>
-
-
-
-	<div class="task-cont">
-	  <div class="title">Task Title</div>
-	  <div class="other-info">
-	    <span class="salary">$10</span>
-	    <span class="location">0.2 miles away</span>
-	    <span class="person">Andrew Wang</span>
+	<div style="display: none;" class="info-info">
+	  <div class="address_description">
+	    <div class="address">Address: {{task.address}}</div>
+	    <div class="description">{{task.description}}</div>
+	  </div>
+	  <div class="accept_button">
+	    <a href='#'>
+              <input class="submit-btn" type = "submit" value="Accept">
+	    </a>
 	  </div>
 	</div>
-  <div style="display: none;" class="info-info">
-    <div class="address_description">
-      <div class="address">Address: 1431 Verna Ct</div>
-      <div class="description">Wash my clothes</div>
-    </div>
-    <div class="accept_button">
-      <a href='#'>
-        <input class="submit-btn" type = "submit" value="Accept">
-      </a>
-    </div>
-  </div>
-
-
-	<div class="task-cont">
-	  <div class="title">Task Title</div>
-	  <div class="other-info">
-	    <span class="salary">$10</span>
-	    <span class="location">0.2 miles away</span>
-	    <span class="person">Andrew Wang</span>
-	  </div>
-	</div>
-  <div style="display: none;" class="info-info">
-    <div class="address_description">
-      <div class="address">Address: 1431 Verna Ct</div>
-      <div class="description">Wash my clothes</div>
-    </div>
-    <div class="accept_button">
-      <a href='#'>
-        <input class="submit-btn" type = "submit" value="Accept">
-      </a>
-    </div>
-  </div>
-
-
-	<div class="task-cont">
-	  <div class="title">Task Title</div>
-	  <div class="other-info">
-	    <span class="salary">$10</span>
-	    <span class="location">0.2 miles away</span>
-	    <span class="person">Andrew Wang</span>
-	  </div>
-	</div>
-
-	<div class="task-cont">
-	  <div class="title">Task Title</div>
-	  <div class="other-info">
-	    <span class="salary">$10</span>
-	    <span class="location">0.2 miles away</span>
-	    <span class="person">Andrew Wang</span>
-	  </div>
-	</div>
-
-	<div class="task-cont">
-	  <div class="title">Task Title</div>
-	  <div class="other-info">
-	    <span class="salary">$10</span>
-	    <span class="location">0.2 miles away</span>
-	    <span class="person">Andrew Wang</span>
-	  </div>
-	</div>
-
-	<div class="task-cont">
-	  <div class="title">Task Title</div>
-	  <div class="other-info">
-	    <span class="salary">$10</span>
-	    <span class="location">0.2 miles away</span>
-	    <span class="person">Andrew Wang</span>
-	  </div>
-	</div>
-
-	<div class="task-cont">
-	  <div class="title">Task Title</div>
-	  <div class="other-info">
-	    <span class="salary">$10</span>
-	    <span class="location">0.2 miles away</span>
-	    <span class="person">Andrew Wang</span>
-	  </div>
-	</div>
-
-	<div class="task-cont">
-	  <div class="title">Task Title</div>
-	  <div class="other-info">
-	    <span class="salary">$10</span>
-	    <span class="location">0.2 miles away</span>
-	    <span class="person">Andrew Wang</span>
-	  </div>
-	</div>
-
-	<div class="task-cont">
-	  <div class="title">Task Title</div>
-	  <div class="other-info">
-	    <span class="salary">$10</span>
-	    <span class="location">0.2 miles away</span>
-	    <span class="person">Andrew Wang</span>
-	  </div>
-	</div>
-
-	<div class="task-cont">
-	  <div class="title">Task Title</div>
-	  <div class="other-info">
-	    <span class="salary">$10</span>
-	    <span class="location">0.2 miles away</span>
-	    <span class="person">Andrew Wang</span>
-	  </div>
-	</div>
-
-
-
+	{% endfor %}
       </div>
       <div id="right_side">
 	     <div id="map">
@@ -184,33 +67,7 @@
     <script type="text/javascript" src="{{ url_for('static', filename='js/fb.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/navbar.js') }}"></script>
-    <script>function initMap() {
-  navigator.geolocation.getCurrentPosition(function(response){
-    var myLatLng = {lat: response.coords.latitude, lng: response.coords.longitude};
-
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: myLatLng
-  });
-
-  var mymarker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-  });
-
-  var markers = [] /*nested arrays of every posting from shivam*/
-
-  for (i = 0; i <= markers.length; i++)
-  var position = new google.maps.LatLng(markers[i].lat, markers[i].lon);
-        bounds.extend(position);
-        marker = new google.maps.Marker({
-            position: position,
-            map: map,
-            title: markers[i].title
-  }
-  );
-  })
-}</script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/map.js') }}"></script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArxQsajqZTXZg8DmGzyaFDrteikvf8gK8&signed_in=true&callback=initMap"></script>
   </body>

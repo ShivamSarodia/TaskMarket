@@ -5,7 +5,17 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
-    return render_template('main.html')
+    for task in query_db("select * from tasks where status='pending'"):
+        print(task['status'])
+        
+    task_list = [{"title": task['title'],
+                  "salary": task['salary'],
+                  "distance": "0.2 mi away",
+                  "requester": query_db("select * from users where fb_user_id = ?", [task["poster_id"]], True)['fullName'],
+                  "address": "123 Sesame St.",
+                  "description": task['description']
+    } for task in query_db("select * from tasks where status='pending'")]
+    return render_template('main.html', task_list = task_list)
 
 @app.route("/create-task")
 def create_task():
@@ -45,9 +55,10 @@ def make_task():
         salary = request.form["salary"]
         lat = request.form["lat"]
         lon = request.form["lon"]
+        addr = request.form["address"]
         poster_id = request.form["uid"]
 
-        query_db("insert into tasks (status, title, description, salary, lat, lon, poster_id) values (?, ?, ?, ?, ?, ?, ?)", [status, title, description, salary, lat, lon, poster_id])
+        query_db("insert into tasks (status, title, description, salary, lat, lon, addr, poster_id) values (?, ?, ?, ?, ?, ?, ?, ?)", [status, title, description, salary, lat, lon, addr, poster_id])
 
         task_id = query_db("select last_insert_rowid();", one=True)[0]
         query_db("insert into tasks_made (user_id, task_id) values (?, ?)", [poster_id, task_id])
