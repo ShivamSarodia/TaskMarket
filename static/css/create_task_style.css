@@ -45,17 +45,20 @@ textarea {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    font-size:16px;
 }
 
 .title-input {
     margin-bottom:15px;
+    font-size:16px;
 }
 
 .input-field {
     margin-bottom:15px;
-    height:15px;
+    font-size:16px;
 }
 
 .salary-input {
     margin-bottom:15px;
+    font-size:16px;
 }
