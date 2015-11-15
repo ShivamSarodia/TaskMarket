@@ -43,6 +43,8 @@ html {
 
 #map
 {
+    height:100%;
+    margin: 0 auto;
     background: transparent url(https://themarketingoak.files.wordpress.com/2015/07/circle-loading-animation.gif) no-repeat center center;
 }
 
@@ -55,6 +57,7 @@ html {
     padding: 10px;
     text-align: center;
     margin-top: 15px;
+    cursor: pointer;
 }
 
 .info-info {
