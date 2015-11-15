@@ -8,9 +8,6 @@ add_task = function() {
 	    geocoder.geocode( { 'address': address}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
 
-		    alert("Latitude: "+results[0].geometry.location.lat());
-		    alert("Longitude: "+results[0].geometry.location.lng());
-
 		    $.ajax({
 			method: "POST",
 			url: "/make-task-back",
@@ -60,6 +57,4 @@ initialize = function() {
 	    ].join(' ');
 	}
     });
-}
-codeAddress = function() {
 }

@@ -13,7 +13,9 @@ def main():
                   "distance": "0.2 mi away",
                   "requester": query_db("select * from users where fb_user_id = ?", [task["poster_id"]], True)['fullName'],
                   "address": task['addr'],
-                  "description": task['description']
+                  "description": task['description'],
+                  "lat": task['lat'],
+                  "lng": task['lon']
     } for task in query_db("select * from tasks where status='pending'")]
     return render_template('main.html', task_list = task_list)
 

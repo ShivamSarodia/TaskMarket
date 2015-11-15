@@ -12,13 +12,12 @@ function initMap() {
 	    map: map,
 	});
 
-	var markers = [] /*nested arrays of every posting from shivam*/
-
-	for (i = 0; i < markers.length; i++)
+	for (i = 0; i < markers.length-1; i++) //since last element is dummy
 	{
-	    var position = new google.maps.LatLng(markers[i].lat, markers[i].lon);
+	    var position = new google.maps.LatLng(markers[i].lat, markers[i].lng);
 	    
             //bounds.extend(position);
+	    console.log(markers[i]);
             marker = new google.maps.Marker({
 		position: position,
 		map: map,
