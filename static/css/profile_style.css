@@ -13,6 +13,9 @@ html {
     background-size: cover;		   
 }
 
+h2 {
+    text-align: center;
+}
 
 .left { 
 	float: left; width: 15%;
@@ -115,7 +118,8 @@ html {
 }
 
 .address {
-	width:100%;
+    width:100%;
+    font-style:italic;
 }
 
 .your_description {
