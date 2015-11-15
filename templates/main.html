@@ -65,8 +65,12 @@
     <script>markers =
       [{% for task in task_list %}
       {lat: {{ task.lat }}, lng: {{ task.lng }}, title: "{{ task.title }}"},
-      {% endfor %}
-      {}]</script>
+      {% endfor %}]
+
+    dests =  [{% for task in task_list %}
+      {lat: {{ task.lat }}, lng: {{ task.lng }}},
+      {% endfor %}]
+</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/fb.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>

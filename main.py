@@ -10,7 +10,7 @@ def main():
         
     task_list = [{"title": task['title'],
                   "salary": task['salary'],
-                  "distance": "0.2 mi away",
+                  "distance": "",
                   "requester": query_db("select * from users where fb_user_id = ?", [task["poster_id"]], True)['fullName'],
                   "address": task['addr'],
                   "description": task['description'],

@@ -12,7 +12,7 @@ function initMap() {
 	    map: map,
 	});
 
-	for (i = 0; i < markers.length-1; i++) //since last element is dummy
+	for (i = 0; i < markers.length; i++)
 	{
 	    var position = new google.maps.LatLng(markers[i].lat, markers[i].lng);
 	    
@@ -24,6 +24,28 @@ function initMap() {
 		title: markers[i].title
 	    });
 	}
+
+	var service = new google.maps.DistanceMatrixService;
+	service.getDistanceMatrix({
+	    origins:[myLatLng],
+	    destinations: dests,
+	    travelMode: google.maps.TravelMode.DRIVING,
+	    unitSystem: google.maps.UnitSystem.IMPERIAL,
+	    avoidHighways: false,
+	    avoidTolls: false
+	}, function(response, status) {
+	    if (status !== google.maps.DistanceMatrixStatus.OK) {
+		console.error("Error was: " + status);
+	    }
+	    else
+	    {
+		var results = response.rows[0].elements;
+		for(i = 0; i < results.length; i++)
+		{
+		    $(".location").get(i).innerHTML = results[i].distance.text;
+		}
+	    }
+	})
     });
 }
     
