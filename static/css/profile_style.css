@@ -1,6 +1,5 @@
 html, body {
-    margin: 0;
-    padding: 0;
+    top-margin: 80px;
     height: 100%;
     overflow: hidden;
     /*position: fixed;*/
@@ -16,17 +15,33 @@ html {
 
 
 .left { 
-	float: left; width: 20%;
+	float: left; width: 15%;
 	margin-left: 5%;
+	height:100%;
+	margin-top:5%;
 }
 .right { 
 	float: right; 
 	width: 30%; 
-	margin-right: 5%
+	margin-right: 5%;
+	margin-top: 5%;
+	height: 50%;
+    padding: 20px 50px 20px 20px;
+    background-color: rgba(0,0,0,0.6);
+
+    overflow: scroll;
+    position: static;
 } 
 .middle { 
 	display: inline-block; 
+	margin-top:5%;
 	width: 30%;
+	height: 100%;
+    padding: 20px 50px 20px 20px;
+    background-color: rgba(0,0,0,0.6);
+
+    overflow: scroll;
+    position: static;
 	
 }
 
@@ -39,6 +54,10 @@ html {
     text-align: center;
     margin-top: 15px;
 }
+.other_job:hover {
+    background-color: rgba(255, 255, 255, 1);
+    border: 3px rgba(61, 178, 255, 1) solid;
+}
 
 .your_job {
     width: 100%;
@@ -48,6 +67,10 @@ html {
     padding: 10px;
     text-align: center;
     margin-top: 15px;
+}
+.your_job:hover {
+    background-color: rgba(255, 255, 255, 1);
+    border: 3px rgba(61, 178, 255, 1) solid;
 }
 
 .other_job_info-info {
