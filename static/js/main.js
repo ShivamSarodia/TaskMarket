@@ -22,16 +22,6 @@ $(document).ready(function(){
 	    window.location = "/profile";
 	});
     })
-    setTimeout(function(){
-	console.log("called timeout");
-	FB.getLoginStatus(function(response) {
-	    console.log("Got response");
-	    console.log(response);
-	    if (response.status === 'connected') {
-		console.log("yee");
-		$("li#login").html("&nbsp");
-	    }
-	});}, 1000);
 });
 
 
