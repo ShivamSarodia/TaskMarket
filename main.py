@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, g
+from flask import Flask, render_template, request, g, make_response
 import sqlite3
 
 app = Flask(__name__)
@@ -25,11 +25,35 @@ def create_task():
 
 @app.route("/profile")
 def profile():
-    return render_template('profile.html')
+    uid = request.cookies.get('uid')
+    print(uid)
+    fullname = query_db("select * from users where fb_user_id = ?", [uid], True)['fullName']
+    jobs = [query_db("select * from tasks where task_id=?", [task['task_id']], True)
+                for task in query_db("select * from tasks_accepted where user_id=?", [uid])]
+    cur_jobs = [{"title": job["title"],
+                 "employer": query_db("select * from users where fb_user_id = ?", [job["poster_id"]], True)['fullName'],
+                 "salary": job["salary"],
+                 "status": job["status"],
+                 "address": job["addr"],
+                 "description": job["description"]} for job in jobs]
 
-@app.route("/fakemap")
-def fakemap():
-    return render_template('fakemap.html')
+    pjobs = [query_db("select * from tasks where task_id=?", [task['task_id']], True)
+                for task in query_db("select * from tasks_made where user_id=?", [uid])]
+    
+    posted_jobs = []
+    for job in pjobs:
+        qval = query_db("select * from users where fb_user_id = ?", [job["accepter_id"]], True)
+        accepted = ""
+        if qval: accepted = qval['fullName']
+
+        posted_jobs.append({"title": job["title"],
+                        "accepted_by": accepted,
+                        "salary": job["salary"],
+                        "status": job["status"],
+                        "address": job["addr"],
+                        "description": job["description"]})
+        
+    return render_template("profile.html", fullname=fullname, cur_jobs = cur_jobs, posted_jobs = posted_jobs)
 
 @app.route("/login-back", methods = ['POST'])
 def login():
@@ -43,10 +67,12 @@ def login():
               print("Adding new user")
               query_db("insert into users (fb_user_id, fullname) values (?, ?)", [uid, fullname])
 
-        return "success"
+        resp = make_response("success")
+        resp.set_cookie("uid", uid)
+        return resp
     else:
         print("Not a POST")
-    return ""
+        return ""
 
 @app.route("/make-task-back", methods = ['POST'])
 def make_task():
