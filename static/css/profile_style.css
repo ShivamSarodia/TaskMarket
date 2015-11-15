@@ -1,7 +1,7 @@
 html, body {
     top-margin: 80px;
     height: 100%;
-    overflow: hidden;
+
     /*position: fixed;*/
 }
 
@@ -22,7 +22,7 @@ html {
 }
 .right { 
 	float: right; 
-	width: 30%; 
+	width: 35%; 
 	margin-right: 5%;
 	margin-top: 5%;
 	height: 50%;
@@ -35,13 +35,14 @@ html {
 .middle { 
 	display: inline-block; 
 	margin-top:5%;
-	width: 30%;
+	width: 35%;
 	height: 100%;
     padding: 20px 50px 20px 20px;
     background-color: rgba(0,0,0,0.6);
 
     overflow: scroll;
     position: static;
+    margin-left:45px;
 	
 }
 
@@ -114,8 +115,7 @@ html {
 }
 
 .address {
-	float:left;
-	width:80%;
+	width:100%;
 }
 
 .your_description {
@@ -128,5 +128,20 @@ html {
     width: 30%;
     margin: 0 auto;
 }
+
+h2 {
+    color: white;
+}
+p {
+    color:white;
+}
+
+#personal-info { 
+    margin-right:15px;
+    background-color: rgba(0,0,0,0.6);
+
+    overflow: scroll;
+    position: static;
+} 
 
 
