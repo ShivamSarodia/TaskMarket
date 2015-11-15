@@ -3,7 +3,7 @@ function initMap() {
 	var myLatLng = {lat: response.coords.latitude, lng: response.coords.longitude};
 
 	var map = new google.maps.Map(document.getElementById('map'), {
-	    zoom: 4,
+	    zoom: 16,
 	    center: myLatLng
 	});
 
@@ -15,14 +15,16 @@ function initMap() {
 	var markers = [] /*nested arrays of every posting from shivam*/
 
 	for (i = 0; i < markers.length; i++)
+	{
 	    var position = new google.maps.LatLng(markers[i].lat, markers[i].lon);
-	
-        bounds.extend(position);
-        marker = new google.maps.Marker({
-            position: position,
-            map: map,
-            title: markers[i].title
-	});
+	    
+            //bounds.extend(position);
+            marker = new google.maps.Marker({
+		position: position,
+		map: map,
+		title: markers[i].title
+	    });
+	}
     });
 }
     
