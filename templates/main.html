@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      #map2{
+        height:100%;
+      }
+      </style>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>TaskMarket</title>
 
@@ -58,7 +63,8 @@
 
       </div>
       <div id="right_side">
-	Stuff
+	     <div id="map2">
+        </div>
       </div>
     </div>
 
@@ -68,7 +74,20 @@
     <script type="text/javascript" src="{{ url_for('static', filename='js/fb.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/navbar.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/map2.js') }}"></script>
+    <script> function initMap() {
+  var myLatLng = {lat: -25.363, lng: 131.044};
+
+  var map = new google.maps.Map(document.getElementById('map2'), {
+    zoom: 4,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+} </script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArxQsajqZTXZg8DmGzyaFDrteikvf8gK8&signed_in=true&callback=initMap"></script>
   </body>
