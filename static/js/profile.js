@@ -24,6 +24,11 @@ $(document).ready(function(){
     })
 });
 
+do_logout = function() {
+    FB.logout(function(){});
+    document.cookie = "uid=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
 
 
 
