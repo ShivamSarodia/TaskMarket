@@ -2,6 +2,8 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
+    overflow: hidden;
+    /*position: fixed;*/
 }
 
 html {
@@ -24,6 +26,9 @@ html {
     height: 100%;
     padding: 20px 50px 20px 20px;
     background-color: rgba(0,0,0,0.6);
+
+    overflow: scroll;
+    position: static;
 }
 
 #right_side {
@@ -32,6 +37,11 @@ html {
     height: 100%;
 
     margin: 20px;
+}
+
+#map
+{
+    background-color: gray;
 }
 
 .task-cont {
