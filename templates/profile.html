@@ -16,7 +16,7 @@
       <li class='active'><a href='\'>TaskMarket</a></li>
       <li><a href='\create-task'>Create Task</a></li>
 
-      <li id="login"><a href='/'>Logout</a></li> <!--TODO: implement-->
+      <li id="logout"><a href='/'>Logout</a></li> <!--TODO: implement-->
       <li id="profile"><a href='/profile'>Profile</a></li>
       <li><a href='\'>Home</a></li>
     </ul>
@@ -45,7 +45,7 @@
           <div class="title">{{ cur_job.title }}</div>
           <div class="other_job_info">
             <span class="employer">Employer: {{ cur_job.employer }}</span>
-            <span class="price">{{ cur_job.salary }}</span>
+            <span class="price">${{ cur_job.salary }}</span>
             <div class="status">{{ cur_job.status }}</div>
           </div>
         </div>
